@@ -1,24 +1,24 @@
 function Calc(operation, first, second) {
-	let numberError =  typeof first != "number" || typeof second != "number";
+	let numberError = typeof first != "number" || typeof second != "number";
 	let zeroError = (operation == "/" || operation == "%") && second == "0";
 
-	if (numberError || zeroError) {
-		return "Error";
-	} else if (operation == "+") {
-		return first + second;
-	} else if (operation == "-") {
-		return first - second;
-	} else if (operation == "*") {
-		return first * second;
-	} else if (operation == "/") {
-		return first / second;
-	} else if (operation == "%") {
-		return first % second;
-	} else if (operation == "**") {
-		return first ** second;	
-	} else {
-		return "Unknown operation";
-	}
+	if (numberError || zeroError) return "Error";
+	switch (operation) {
+		case "+":
+			return first + second;
+		case "-":
+			return first - second;
+		case "*":
+			return first * second;
+		case "/":
+			return first / second;
+		case "%":
+			return first % second;
+		case "**":
+			return first ** second;
+		default:
+			return "Unknown operation";
+	};
 };
 
 console.log(Calc('-', 10, 25));
