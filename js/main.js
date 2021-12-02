@@ -1,6 +1,8 @@
+import {resultDisplay, operations, numbers, backspace, clear} from './view.js'
+
 function Calc(operation, first, second) {
 	let numberError = typeof first != "number" || typeof second != "number";
-	let zeroError = (operation == "/") && second == "0";
+	let zeroError = (operation == "÷") && second == 0;
 
 	if (numberError || zeroError) return "Error";
 	switch (operation) {
@@ -22,11 +24,6 @@ let firstNumber = 0;
 let currentNumber = 0;
 let operation  = '+';
 
-let resultDisplay = document.querySelector('.calc__result');
-let operations = document.querySelectorAll('#operation');
-let numbers = document.querySelectorAll('#number');
-let backspace = document.getElementById('backspace');
-let clear = document.getElementById('clear');
 
 function numberClick() {
 	if (currentNumber === null) {
